@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+const morgan = require('morgan');
 const mongoose = require('mongoose');
 
 mogoose.Promise = global.Promise;
@@ -10,6 +11,8 @@ const bodyParser = require('body-parser');
 const {PORT, DATABASE_URL} = requrie('./config');
 const {BlogPosts} = require('./models')
 const app = express();
+app.use(morgan('common'));
+app.use(express.json());
 app.use(bodyParser.json());
 
 // GET request all blogposts
