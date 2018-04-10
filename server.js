@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 // GET request all blogposts
-app.get('/blogposts', (req, res) =>{
+app.get('/posts', (req, res) =>{
   BlogPosts
   .find().then(blogposts =>{
     res.json({
@@ -31,7 +31,7 @@ app.get('/blogposts', (req, res) =>{
 });
 
 // GET request by id
-app.get('/blogposts/:id',(req, res) =>{
+app.get('/posts/:id',(req, res) =>{
   BlogPosts
   .findById(req.params.id)
   .then(blogpost => res.json(blogpost.serialize()))
