@@ -42,7 +42,7 @@ app.get('/posts/:id',(req, res) =>{
 });
 
 // POST new blog posts
-app.post('/blogposts', (req, res) =>{
+app.post('/posts', (req, res) =>{
   const requiredFields = ['title', 'content', 'author'];
   for (i=0; i < requiredFields.length; i++){
     const field = requiredFields[i];
@@ -66,7 +66,7 @@ app.post('/blogposts', (req, res) =>{
   });
 });
 
-app.put('.blogposts/:id', (req, res) =>{
+app.put('/posts/:id', (req, res) =>{
 if(!(req.params.id && req.body.id && req.params.id === req.body.id)){
   const message = (`Request path id (${req.params.id}) and request body id (${req.body.id}) must match`);
   console.error(message);
@@ -87,7 +87,7 @@ BlogPosts
 .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 
-app.delete('blogposts/:id', (req, res) =>{
+app.delete('/posts/:id', (req, res) =>{
 BlogPosts
 .findByIdAndRemove(req.params.id)
 .then(blogpost => res.status(204).end())
