@@ -8,7 +8,7 @@ mongoose.Promise = global.Promise;
 
 const bodyParser = require('body-parser');
 
-const {PORT, DATABASE_URL} = requrie('./config');
+const {PORT, DATABASE_URL} = require('./config');
 const {BlogPosts} = require('./models')
 const app = express();
 app.use(morgan('common'));
